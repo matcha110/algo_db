@@ -1,8 +1,16 @@
-SELECT * FROM prefectures ORDER BY area DESC LIMIT 10;
+UPDATE
+    prefectures 
+SET
+    name = '茨城県'
+WHERE
+    name = '茨木県';
 
-SELECT * FROM prefectures WHERE name LIKE '%島%';
+UPDATE
+    prefectures 
+SET
+    name = '鳥取県'
+WHERE
+    name = '取鳥県';
 
-SELECT
-    MAX(highest) AS '最高気温',
-    MIN(lowest) AS '最低気温'
-FROM temperature_august;
+SELECT * FROM prefectures;
+
