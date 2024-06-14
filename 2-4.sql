@@ -1,8 +1,9 @@
-SELECT * FROM prefectures ORDER BY area DESC LIMIT 10;
+INSERT INTO
+    prefectures
+VALUES
+    (36, '徳島県', 4146, 720000),
+    (37, '香川県', 1876, 950000),
+    (38, '愛媛県', 5675, 1335000),
+    (39, '高知県', 7102, 692000);
 
-SELECT * FROM prefectures WHERE name LIKE '%島%';
-
-SELECT
-    MAX(highest) AS '最高気温',
-    MIN(lowest) AS '最低気温'
-FROM temperature_august;
+SELECT * FROM prefectures ORDER BY id;
