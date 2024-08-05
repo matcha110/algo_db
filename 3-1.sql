@@ -1,8 +1,11 @@
-SELECT * FROM prefectures ORDER BY area DESC LIMIT 10;
-
-SELECT * FROM prefectures WHERE name LIKE '%島%';
-
 SELECT
-    MAX(highest) AS '最高気温',
-    MIN(lowest) AS '最低気温'
-FROM temperature_august;
+    *
+FROM
+    prefectures
+ORDER BY
+    area DESC
+LIMIT 1
+OFFSET 1;
+
+-- LIMIT：出力個数の指定
+-- OFFSET：ずらしたい数(例えば11番目を出力したい場合、OFFSET 10を指定)

@@ -1,8 +1,18 @@
-SELECT * FROM prefectures ORDER BY area DESC LIMIT 10;
+-- 副問合せでテーブルをまとめる
+WITH expenses AS (
+    SELECT * FROM expenses_april
+    UNION ALL
+    SELECT * FROM expenses_may
+    UNION ALL
+    SELECT * FROM expenses_june
+)
 
-SELECT * FROM prefectures WHERE name LIKE '%島%';
+SELECT category AS 'カテゴリ',
+    SUM(amount) AS '支出額'
+FROM expenses
 
-SELECT
-    MAX(highest) AS '最高気温',
-    MIN(lowest) AS '最低気温'
-FROM temperature_august;
+GROUP BY
+    `カテゴリ`
+
+ORDER BY
+    `支出額` DESC;

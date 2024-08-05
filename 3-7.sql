@@ -1,8 +1,14 @@
-SELECT * FROM prefectures ORDER BY area DESC LIMIT 10;
-
-SELECT * FROM prefectures WHERE name LIKE '%島%';
-
+WITH opt_results AS (
+    SELECT email, game_id, score FROM results
+    EXCEPT
+    SELECT email, game_id, score FROM optout
+)
 SELECT
-    MAX(highest) AS '最高気温',
-    MIN(lowest) AS '最低気温'
-FROM temperature_august;
+    email
+FROM
+    opt_results
+GROUP BY
+    email
+ORDER BY
+    SUM(score) DESC
+LIMIT 10;
