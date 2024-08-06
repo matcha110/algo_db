@@ -1,8 +1,13 @@
-SELECT * FROM prefectures ORDER BY area DESC LIMIT 10;
+INSERT INTO account_titles
+-- 重複しないように選択
+SELECT distinct
+    category_id, category_title, expense_class
+FROM
+    expenses_everything;
 
-SELECT * FROM prefectures WHERE name LIKE '%島%';
-
-SELECT
-    MAX(highest) AS '最高気温',
-    MIN(lowest) AS '最低気温'
-FROM temperature_august;
+INSERT INTO stores
+-- 重複しないように選択
+SELECT distinct
+    store_id, store_name
+FROM
+    expenses_everything;
